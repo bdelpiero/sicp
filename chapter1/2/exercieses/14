@@ -1,0 +1,20 @@
+La mejor explicacion: https://billthelizard.blogspot.com/2009/12/sicp-exercise-114-counting-change.html
+
+(cc n 1) = 2n + 1 ---> el lado derecho (donde se va restando 1)
+va a generar n nodos (hasta llegar a 0). 
+cada uno de esos nodos genera un subnodo a la izquierda (n, 0). Es decie, 2n nodos + 1 (el nodo root)
+
+(cc n 2) = n/5 * (2n + 1) ---> el lado derecho, donde se va restando 5 (la moneda de la segunda denominacion), 
+va a tener n/5 de profundidad (a n se le resta 5 hasta llegar a <= 0). 
+cada uno de esos nodos genera un subnodo a la izq (n, 1) = 2n + 1.
+las constantes 5, 2 y 1 no importan en O notation, asi que queda:
+n * n = O(n^2)
+
+(cc n 3) = n/10 * (n/5 * (2n + 1)) ---> de nuevo lo mismo. el lado derecho va a generar n/10 nodos
+y cada uno va a generar un subnodo (cc n, 2). Como el /10 no importa, queda:
+n * (n * n) = O(n^3)
+
+generalizado:
+(cc n k) = O(n^k)
+
+
